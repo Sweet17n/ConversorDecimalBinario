@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Conversor Decimal a Binario</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Conversor Decimal a Binario</h1>
+        <p>Ingrese un número decimal para ver su equivalente binario</p>
+    </header>
+    <main>
+        <section class="formulario">
+            <input type="number" id="decimal" placeholder="Ej: 25" min="0" />
+            <button onclick="convertir()">Convertir</button>
+        </section>
+        <section class="resultado">
+            <p id="salida">Resultado en binario aparecerá aquí</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Proyecto Final - Curso de Ensamblador</p>
+    </footer>
+    <script>
+        function convertir() {
+            const num = parseInt(document.getElementById("decimal").value);
+            const salida = document.getElementById("salida");
+            if (isNaN(num) || num < 0) {
+                salida.textContent = "Por favor ingrese un número decimal válido (0 o mayor)";
+            } else {
+                salida.textContent = "Binario: " + num.toString(2);
+            }
+        }
+    </script>
+</body>
+</html>
