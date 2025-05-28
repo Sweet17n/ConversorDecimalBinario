@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Conversor Decimal a Binario</title>
+    <title>Conversor decimal a binario</title>
     <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
     <header>
-        <h1>Conversor Decimal a Binario</h1>
-        <p>Ingrese un número decimal para ver su equivalente binario</p>
+        <h1>Conversor decimal a binario</h1>
+        <p>Ingrese un número decimal entero para ver su equivalente binario</p>
     </header>
     <main>
         <section class="formulario">
-            <input type="number" id="decimal" placeholder="Ej: 25" min="0" />
+            <input type="number" id="decimal" placeholder="Ej: 25" min="0" step="1" />
             <button onclick="convertir()">Convertir</button>
         </section>
         <section class="resultado">
@@ -25,10 +25,14 @@
     </footer>
     <script>
         function convertir() {
-            const num = parseInt(document.getElementById("decimal").value);
+            const valor = document.getElementById("decimal").value;
+            const num = parseFloat(valor);
             const salida = document.getElementById("salida");
+
             if (isNaN(num) || num < 0) {
-                salida.textContent = "Por favor ingrese un número decimal válido (0 o mayor)";
+                salida.textContent = "Por favor ingrese un número válido mayor o igual a 0.";
+            } else if (!Number.isInteger(num)) {
+                salida.textContent = "Solo se permiten números decimales enteros.";
             } else {
                 salida.textContent = "Binario: " + num.toString(2);
             }
